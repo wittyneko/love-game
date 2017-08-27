@@ -11,7 +11,7 @@ import cn.bmob.v3.Bmob
 class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        val appInfo = packageManager.getApplicationInfo(packageName,PackageManager.GET_META_DATA)
+        val appInfo = packageManager.getApplicationInfo(packageName, PackageManager.GET_META_DATA)
         val bmobId = appInfo.metaData.getString("BMOB_APPLICATION_ID")
         Bmob.initialize(this, bmobId)
     }

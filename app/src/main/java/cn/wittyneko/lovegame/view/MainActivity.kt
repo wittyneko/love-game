@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         l2dMgr.onDestroy()
     }
 
-    fun initEvent(){
+    fun initEvent() {
         Log.e("story", "size: ${story.list.size}, 2: ${story.list[2].list.size}")
         val list = story.list[2]
         Log.e("story", "size: ${list.list.size}, type: ${list.type}, msg:${list.msg}")
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 //        }
 //
 //        if (dialog.type == 2) {}
-        when(dialog.type) {
+        when (dialog.type) {
             0 -> {
                 showMsg(dialog)
             }
@@ -136,7 +136,6 @@ class MainActivity : AppCompatActivity() {
         posts.saveObservable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-
                     //Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                     ThreadUtil.runOnUiThread({
                         binding.msgTv.text = "重新开始"
@@ -154,7 +153,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getVersion() = packageManager.getPackageInfo(packageName, 0).versionName
 
-    inner class OptionDialog(context: Context): Dialog(context) {
+    inner class OptionDialog(context: Context) : Dialog(context) {
 
         var binding: DialogOptionBinding
         var adapter: Adapter
@@ -178,7 +177,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        inner class Adapter: RecyclerView.Adapter<Adapter.ViewHolder>() {
+        inner class Adapter : RecyclerView.Adapter<Adapter.ViewHolder>() {
             var list: MutableList<DialogMsg> = mutableListOf()
 
             override fun onBindViewHolder(holder: ViewHolder, position: Int) {
