@@ -5,7 +5,6 @@ import android.content.Context
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.SystemClock
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -55,12 +54,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         l2dMgr.onResume()
-//        Thread({
-//            SystemClock.sleep(3000)
-//            getBoy().feedOut()
-//            SystemClock.sleep(1000)
-//            getBoy().feedIn()
-//        }).start()
     }
 
     override fun onPause() {
@@ -85,14 +78,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun start(dialog: DialogMsg) {
-//        if (dialog.type == 0) {
-//            showMsg(dialog)
-//        }
-//        if (dialog.type == 1) {
-//            showOption(dialog)
-//        }
-//
-//        if (dialog.type == 2) {}
         when (dialog.type) {
             0 -> {
                 showMsg(dialog)
