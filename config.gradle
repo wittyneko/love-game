@@ -1,0 +1,84 @@
+
+//获取系统用户目录
+def get_UserHome() {
+    String home = System.properties['user.home']
+    println("userHome: $home")
+    return home
+}
+
+//获取local.properties解析
+def get_LocalProperties() {
+    Properties properties = null
+    File f = rootProject.file('local.properties')
+    if (f.exists()) {
+        println("localProperties: ${f.absolutePath}")
+        properties = new Properties()
+        properties.load(f.newDataInputStream())
+    }
+    return properties
+}
+
+//获取Android SDK目录
+def get_SdkPath() {
+    String DEF_PATH = "/opt/android-sdk-linux"
+    String sdkPath = null
+    Properties properties = localProperties
+    if (properties != null) {
+        sdkPath = properties.getProperty('sdk.dir')
+        println("sdk.dir: $sdkPath")
+    }
+    if (sdkPath == null) {
+        sdkPath = System.getenv()['ANDROID_HOME']
+        println("ANDROID_HOME: $sdkPath")
+    }
+    if (sdkPath == null) {
+        sdkPath = System.getenv()['ANDROID_SDK']
+        println("ANDROID_SDK: $sdkPath")
+    }
+    if (sdkPath == null) {
+        sdkPath = DEF_PATH
+        println("DEF_SDK: $sdkPath")
+    }
+    //println("sdkPath: ${sdkPath}")
+    return sdkPath
+}
+
+ext {
+    userHome = _UserHome
+    localProperties = _LocalProperties
+    sdkPath = _SdkPath
+    isLocalMaven = true
+    localMavenHost = "http://192.168.1.187:8081"
+
+    android = [
+            pluginVersion    : "2.3.3",
+            properties       : localProperties,
+            sdkPath          : sdkPath,
+            //////////////////////////////////
+            compileSdkVersion: 25,
+            buildToolsVersion: "25.0.2",
+            minSdkVersion    : 19,
+            targetSdkVersion : 25,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+            supportVersion   : "25.3.1",
+            kotlin_stdlib    : "1.1.0",
+            anko_version     : "0.10.1",
+    ]
+
+    maven = [
+            myMaven            : "file:${userHome}/.mymaven/repository",
+            myMavenSnapshots   : "file:${userHome}/.mymaven/snapshotRepository",
+            localGroup         : "$localMavenHost/nexus/content/groups/public",
+            localMaven         : "$localMavenHost/nexus/content/repositories/releases",
+            localMavenSnapshots: "$localMavenHost/nexus/content/repositories/snapshots",
+            sdkMaven           : "file:${android.sdkPath}/extras/m2repository",
+            sdkAndroidMaven    : "file:${android.sdkPath}/extras/android/m2repository",
+            sdkGoogleMaven     : "file:${android.sdkPath}/extras/google/m2repository",
+            aliyunMaven        : "http://maven.aliyun.com/nexus/content/groups/public",
+            jitpack            : "https://jitpack.io",
+            HyphenateInc       : "https://raw.githubusercontent.com/HyphenateInc/Hyphenate-SDK-Android/master/repository",
+            igexin             : "http://mvn.gt.igexin.com/nexus/content/repositories/releases/",
+    ]
+
+}

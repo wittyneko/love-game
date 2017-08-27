@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.1.4-2'
+    ext.kotlin_version = '1.1.4'
+    ext.anko_version = '0.10.0'
+    apply from: "dependencies.gradle"
+    repositories {
+        maven { url rootProject.ext.maven.localGroup}
+        maven { url rootProject.ext.maven.aliyunMaven}
+        jcenter()
+        maven { url rootProject.ext.maven.jitpack }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+        maven { url rootProject.ext.maven.sdkMaven}
+        maven { url rootProject.ext.maven.sdkAndroidMaven}
+        maven { url rootProject.ext.maven.sdkGoogleMaven}
+        maven { url rootProject.ext.maven.localGroup}
+        maven { url rootProject.ext.maven.aliyunMaven}
+        jcenter()
+        maven { url rootProject.ext.maven.jitpack }
+        //环信
+        maven { url rootProject.ext.maven.HyphenateInc }
+        //个推 URL地址
+        maven { url rootProject.ext.maven.igexin }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

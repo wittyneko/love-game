@@ -1,0 +1,70 @@
+{
+  "version": "Live2DViewerEX Config 1.0",
+  "model": "A.moc",
+  "textures": [
+    "A.1024/texture_00.png",
+    "A.1024/texture_01.png",
+    "A.1024/texture_02.png"
+  ],
+  "layout": {
+    "center_x": -0.5,
+    "center_y": -0.32,
+    "width": 2.0
+  },
+  "motions": {
+    "tap": [
+      {
+        "file": "motions/tap/DK_KAEDE_0001.mtn",
+        "sound": "motions/tap/DK_KAEDE_0001.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0011.mtn",
+        "sound": "motions/tap/DK_KAEDE_0011.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0021.mtn",
+        "sound": "motions/tap/DK_KAEDE_0021.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0031.mtn",
+        "sound": "motions/tap/DK_KAEDE_0031.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0041.mtn",
+        "sound": "motions/tap/DK_KAEDE_0041.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0061.mtn",
+        "sound": "motions/tap/DK_KAEDE_0061.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0064.mtn",
+        "sound": "motions/tap/DK_KAEDE_0064.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0067.mtn",
+        "sound": "motions/tap/DK_KAEDE_0067.mp3"
+      },
+      {
+        "file": "motions/tap/DK_KAEDE_0070.mtn",
+        "sound": "motions/tap/DK_KAEDE_0070.mp3"
+      }
+    ],
+    "idle": [
+      {
+        "file": "motions/idle/KAEDE_1_M01.mtn"
+      },
+      {
+        "file": "motions/idle/KAEDE_1_M02.mtn"
+      },
+      {
+        "file": "motions/idle/KAEDE_1_M04.mtn"
+      },
+      {
+        "file": "motions/idle/KAEDE_1_M09.mtn"
+      }
+    ]
+  },
+  "physics": "A.physics.json",
+  "pose": "pose.json"
+}

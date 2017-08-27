@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="cn.wittyneko.lovegame.view.MainActivity"
+        android:id="@+id/root_veiw">
+
+        <FrameLayout
+            android:id="@+id/live2d_la"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/msg_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:padding="10dp"
+            android:lineSpacingExtra="6dp"
+            android:layout_gravity="bottom"
+            android:background="@color/translucence"
+            android:textColor="@android:color/white"
+            android:text="触摸对话开始" />
+
+    </FrameLayout>
+</layout>
