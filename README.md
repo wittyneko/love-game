@@ -8,3 +8,6 @@ title: String
 content: String
 version: String
 ```
+
+### 预览
+![game](./game.webp)
